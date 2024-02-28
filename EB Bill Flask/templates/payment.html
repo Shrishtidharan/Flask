@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pay Bill</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+    <div class="container py-1">
+      <a class="navbar-brand text-light font-weight-bold " href="signup.html">
+        Electricity Board
+        <i class="fas fa-bolt mr-1 ml-2"></i> <!-- Font Awesome icon -->
+      </a>
+      <button class="navbar-toggler text-dark"  type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link active text-light ml-4" href="viewbill.html">Home</a>
+          </li>
+          <li class="nav-item text-light">
+            <a class="nav-link text-light ml-4" href="payment.html">Pay Bill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light ml-4" href="complaint.html">Register Complaint</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light ml-4" href="complaintstatus.html">Complaint Status</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome message -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12 text-right welcome">
+        <p>Welcome <span id="vbilluname" style="font-weight: bold;">John Doe</span></p>
+        <a href="#" class="btn btn-primary" onclick=window.location.href="index.html">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Payment details section -->
+  <div class="container my-2">
+    <div class="row">
+      <div class="col-md-6 offset-md-3">
+        <h2 class="mb-4">Payment Details</h2>
+        <div class="form-group">
+          <label for="billAmount">Bill Amount:</label>
+          <input type="text" class="form-control" id="billAmount" disabled>
+        </div>
+        <div class="form-group">
+          <label for="totalPayableAmount">Total Payable Amount:</label>
+          <input type="text" class="form-control" id="totalPayableAmount" disabled>
+        </div>
+        <div class="form-group">
+          <label for="pgCharge">PG Charge:</label>
+          <input type="text" class="form-control" id="pgCharge">
+        </div>
+        <div class="row justify-content-center">
+        <div class="col-md-12">
+            <table class="table table-bordered">
+                <thead class="thead-dark">
+                  <tr>
+                    <th scope="col">Consumer Number</th>
+                    <th scope="col">Bill Number</th>
+                    <th scope="col">Bill Amount</th>
+                  </tr>
+                </thead>
+                <tbody id="paymentTableBody">
+                    <td id="cnum"></td>
+                    <td id="bnum"></td>
+                    <td>1550</td>
+
+                  <!-- Data will be dynamically added here using JavaScript -->
+                </tbody>
+              </table>
+
+
+        </div>
+
+
+
+        </div>
+        <div class="form-group">
+          <label for="modeOfPayment">Mode of Payment:</label>
+          <select class="form-control" id="modeOfPayment">
+            <option value="Debit">Debit</option>
+            <option value="Credit">Credit</option>
+          </select>
+        </div>
+        <div class="text-center">
+          <button class="btn btn-primary pay-now" >Proceed to Pay</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Include jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Custom JavaScript -->
+  <script src="script.js"></script>
+  <script src="payment.js"></script>
+</body>
+</html>

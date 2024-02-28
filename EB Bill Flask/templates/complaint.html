@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Register Complaint/Service</title>
+  <link rel="stylesheet" href="style2.css">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+    <div class="container py-1">
+      <a class="navbar-brand text-light font-weight-bold" href="signup.html">
+        Electricity Board
+        <i class="fas fa-bolt mr-1 ml-2"></i> <!-- Font Awesome icon -->
+      </a>
+      <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link  text-light ml-4" href="viewbill.html">Home</a>
+          </li>
+          <li class="nav-item text-light">
+            <a class="nav-link text-light ml-4" href="#">Pay Bill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light ml-4" href="complaint.html">Register Complaint</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light ml-4" href="complaintstatus.html">Complaint Status</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome message -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12 text-right welcome">
+        <p>Welcome <span id="vbilluname" style="font-weight: bold;"></span></p>
+        <a href="index.html" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Register Complaint/Service Section -->
+  <div class="container mt-1">
+    <div class="row justify-content-center">
+      <div class="col-md-9">
+        <h2 class="mb-4">Register Complaint</h2>
+        <form id="complaintForm" >
+          <div class="form-group">
+            <label for="complaintType">Complaint/Service Type:</label>
+            <select class="form-control" id="complaintType">
+              <option>Billing related</option>
+              <option>Voltage related</option>
+              <option>Frequent disruption</option>
+              <option>Street light related</option>
+              <option>Pole related</option>
+              <!-- Add more complaint/service types as needed -->
+            </select>
+          </div>
+          
+          <div class="form-group">
+            <label for="contactPerson">Contact Person:</label>
+            <input type="text" class="form-control" id="contactPerson" required>
+          </div>
+          <div class="form-group ">
+            <label for="landmark">Landmark:</label>
+            <input type="text" class="form-control" id="landmark" required>
+          </div>
+          <div class="form-group">
+            <label for="consumerNumber" >Consumer Number:</label>
+            <input type="text" class="form-control" id="consumerNumber" maxlength="13">
+          </div>
+          <div class="form-group">
+            <label for="problemDescription">Problem Description:</label>
+            <textarea class="form-control" id="problemDescription" rows="3"></textarea required>
+          </div>
+          <div class="form-group">
+            <label for="mobileNumber">Mobile Number:</label>
+            <input type="text" class="form-control" id="mobileNumber" maxlength="10">
+          </div>
+          <div class="form-group">
+            <label for="address">Address:</label>
+            <textarea class="form-control" id="address" rows="3"></textarea>
+          </div>
+          
+          <button type="submit" class="btn btn-primary mr-3" onclick="subcom()">Submit Complaint</button>
+          <button type="reset" class="btn btn-secondary  ">Cancel</button>
+        
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Include jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Include your custom JavaScript file -->
+  <script src="script.js"></script>
+  <script src="complaint.js"></script>
+</body>
+</html>

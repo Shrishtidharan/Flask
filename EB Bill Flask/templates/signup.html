@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Registration</title>
+  <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <div class="container-fluid  p-3">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-md-9">
+          <div class="card mt-3">
+            <div class="card-body">
+              <h2 class="text-center mb-4">Customer Registration</h2>
+              <form id="registrationForm" method="POST" action="{{ url_for('signup') }}">
+                <!-- Consumer Details Section -->
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="consumerNumber">Consumer Number:</label>
+                    <input type="text" class="form-control" id="consumerNumber" maxlength="13" name="consumerNumber">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="billNumber">Bill Number:</label>
+                    <input type="text" class="form-control" id="billNumber" maxlength="5" name="billNumber">
+                  </div>
+                </div>
+                <!-- End of Consumer Details Section -->
+
+                <!-- User Details Section -->
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="title">Title:</label>
+                    <select class="form-control" id="title" name="title">
+                      <option>Mr.</option>
+                      <option>Mrs.</option>
+                      <option>Miss</option>
+                      <option>Ms.</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="name">Customer Name:</label>
+                    <input type="text" class="form-control" id="name" maxlength="50" name="name">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-6">
+                    <label for="email">Email:</label>
+                    <input type="email" class="form-control" id="email" name="email">
+                  </div>
+                  <div class="form-group col-md-6">
+                    <label for="mobile">Mobile Number:</label>
+                    <div class="input-group">
+                      <select class="custom-select col-md-3" id="countryCode" name="countryCode">
+                        <option selected>+91</option>
+                        <option>+1</option>
+                        <option>0</option>
+                        <!-- Add more country codes as needed -->
+                      </select>
+                      <input type="text" class="form-control col-md-9" id="mobileNumber" maxlength="10" name="mobileNumber">
+                    </div>
+                  </div>
+                </div>
+                <!-- End of User Details Section -->
+                <div class="form-group">
+                  <label for="userId">User ID:</label>
+                  <input type="text" class="form-control" id="userId" name="userId">
+                </div>
+
+                <!-- Password Section -->
+                <div class="form-group">
+                  <label for="password">Password:</label>
+                  <div class="input-group">
+                    <input type="password" class="form-control" id="password" maxlength="30" name="password">
+                    <div class="input-group-append">
+                      <button class="btn btn-outline-secondary" type="button" id="showPasswordBtn" onclick="spsignup()">
+                        <i class="fas fa-eye"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Confirm Password Section -->
+                <div class="form-group">
+                  <label for="confirmPassword">Confirm Password:</label>
+                  <input type="password" class="form-control" id="confirmPassword" maxlength="30" name="confirmPassword">
+                </div>
+                <!-- End of Confirm Password Section -->
+
+                <!-- Buttons -->
+                <button type="submit" class="btn btn-primary btn-block">Register</button>
+                <button type="reset" class="btn btn-secondary btn-block">Reset</button>
+                <!-- End of Buttons -->
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Include jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="{{url_for('static',filename='script.js')}}"></script>
+</body>
+</html>

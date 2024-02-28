@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>View Complaint Status</title>
+  <link rel="stylesheet" href="style2.css">
+  <link rel="stylesheet" href="complaintstatus.css">
+
+  <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+  <!-- Top Navigation Bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark py-0">
+    <div class="container py-1">
+      <a class="navbar-brand text-light font-weight-bold" >
+        Electricity Board
+        <i class="fas fa-bolt mr-1 ml-2"></i> <!-- Font Awesome icon -->
+      </a>
+      <button class="navbar-toggler text-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav ml-auto">
+          <li class="nav-item">
+            <a class="nav-link  text-light ml-4" href="viewbill.html">Home</a>
+          </li>
+          <li class="nav-item text-light">
+            <a class="nav-link text-light ml-4" href="#">Pay Bill</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link text-light ml-4" href="complaint.html">Register Complaint</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active text-light ml-4" href="complaintstatus.html">Complaint Status</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Welcome message -->
+  <div class="container mt-4">
+    <div class="row">
+      <div class="col-md-12 text-right welcome">
+        <p>Welcome <span id="vbilluname" style="font-weight: bold;"></span></p>
+        <a href="index.html" class="btn btn-primary">Logout</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Search Complaint Section -->
+  <div class="container mt-5">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="mb-4">Search Complaint</h2>
+        <div class="input-group">
+          <input type="text" class="form-control" placeholder="Enter Complaint ID" id="complaintId">
+          <div class="input-group-append">
+            <button class="btn btn-primary" type="button" id="searchBtn">Search</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Complaint Details Section -->
+  <div class="container mt-5" id="complaintDetails">
+    <!-- Complaint details will be displayed here dynamically -->
+  </div>
+
+  <!-- Include jQuery library -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Include Bootstrap JavaScript -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Include your custom JavaScript file -->
+  <script src="script.js"></script>
+  <script>
+
+document.addEventListener('DOMContentLoaded', function() {
+  // Event listener for search button click
+  document.getElementById('searchBtn').addEventListener('click', function(event) {
+    event.preventDefault(); // Prevent default form submission
+
+    // Retrieve complaint ID from input field
+    var complaintIdu= document.getElementById('complaintId').value;
+
+    // Check if the complaint ID is empty
+    if (complaintIdu==" ") {
+      alert('Please enter a valid complaint ID.');
+      return;
+    }
+
+    // Retrieve complaint details from local storage based on the complaint ID
+    var complaintData = JSON.parse(localStorage.getItem('complaintData'));
+    
+    // Check if complaintData is not null
+    if (complaintData.complaintId == complaintIdu) {
+      displayComplaintDetails(complaintData);
+      
+    }
+    else{
+    alert('Complaint details not found.');
+      return;
+    }
+
+    // Display the complaint details on the screen
+    
+  });
+});
+
+// Function to display complaint details on the screen
+function displayComplaintDetails(complaintData) {
+  // Construct HTML for displaying complaint details
+  var html = '<div class="card">';
+  html += '<div class="card-body">';
+  html += '<h5 class="card-title">Complaint Details</h5>';
+  html += '<p class="card-text"><strong>Complaint ID:</strong> ' + complaintData.complaintId + '</p>';
+  html += '<p class="card-text"><strong>Contact Person:</strong> ' + complaintData.contactPerson + '</p>';
+  html += '<p class="card-text"><strong>Landmark:</strong> ' + complaintData.landmark + '</p>';
+  html += '<p class="card-text"><strong>Consumer Number:</strong> ' + complaintData.consumerNumber + '</p>';
+  html += '<p class="card-text"><strong>Problem Description:</strong> ' + complaintData.problemDescription + '</p>';
+  html += '<p class="card-text"><strong>Mobile Number:</strong> ' + complaintData.mobileNumber + '</p>';
+  html += '<p class="card-text"><strong>Address:</strong> ' + complaintData.address + '</p>';
+  html += '<p class="card-text"><strong>Status:</strong>  In_Progress </p>';
+  html += '</div>';
+  html += '</div>';
+
+  // Append HTML to the complaint details container
+  document.getElementById('complaintDetails').innerHTML = html;
+}
+
+  </script>
+</body>
+</html>

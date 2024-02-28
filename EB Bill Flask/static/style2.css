@@ -1,0 +1,98 @@
+/* style.css */
+
+/* Navbar text size and color */
+.navbar-nav .nav-item .nav-link {
+  font-size: 20px;
+}
+.navbar-brand:hover{
+  font-style:unset;
+  font-size:xx-large;
+  color: #007bff;
+
+}
+.welcome{
+  font-size: 20px;
+}
+/* Navbar hover effect */
+.navbar-nav .nav-item  {
+  background-color: #343a40;
+}
+.nav-link:hover{
+  background-color:#007bff;
+  font-weight: bold;
+  font-size: 22px;
+
+}
+/* Navbar active link */
+.navbar-nav .nav-item .active {
+  background-color:#007bff;
+  font-weight: bold;
+}
+
+/* Button hover effect */
+.btn-primary:hover {
+  background-color: #007bff;
+  border-color: #007bff;
+  font-size: 20px;
+}
+.pay:hover{
+  font-size: 17.5px;
+}
+
+/* Table styling */
+.table {
+  border-radius: 10px;
+  border: 50px solid gray;
+}
+
+.table thead th {
+  color: #fff;
+}
+
+.table tbody td,
+.table tbody th {
+  border-top: none;
+}
+form {
+  background-color:white;
+  padding: 35px;
+  border-radius: 20px;
+  box-shadow: 2px 20px 20px 20px rgba(0.1,0.1,0.1,0.1);
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="password"],
+input[type="email"],
+select{
+  border-radius: 8px;
+  
+}
+
+/* Button styling */
+.btn {
+  border-radius: 100px;
+  transition: all 0.3s ease-in-out;
+}
+
+.btn-primary {
+  background-color: #007bff;
+  border-color: #007bff;
+  border-radius: 40px;
+}
+
+.btn-secondary {
+  background-color: #6c757d;
+  border-color: #6c757d;
+  border-radius: 40px;
+}
+
+.btn-primary:hover,
+.btn-secondary:hover {
+  opacity: 1;
+}
+#complaintForm {
+  border-width: 20px;
+}
+
+/* Success message styling */
